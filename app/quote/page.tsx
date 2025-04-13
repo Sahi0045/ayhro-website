@@ -40,7 +40,7 @@ export default function Quote() {
           email: formData.email,
           phone: formData.mobile,
           service: formData.budget,
-          project_details: formData.message,
+          project_details: `Timeline: ${formData.timeline}\n\n${formData.message}`,
           status: 'new',
           created_at: new Date().toISOString()
         }])
@@ -59,17 +59,26 @@ export default function Quote() {
           body: JSON.stringify({
             name: formData.fullName,
             email: formData.email,
-            message: `
-Phone: ${formData.mobile}
-Service: ${formData.budget}
-Timeline: ${formData.timeline}
-Message: ${formData.message}
-            `
+            message: `New Quote Request from Website Form
+
+Contact Details:
+- Name: ${formData.fullName}
+- Email: ${formData.email}
+- Phone: ${formData.mobile}
+
+Project Details:
+- Budget Range: ${formData.budget}
+- Timeline: ${formData.timeline}
+
+Message:
+${formData.message}
+
+This quote request has been saved to your Supabase database.`
           }),
         })
         
         if (!emailResponse.ok) {
-          console.error('Email notification failed to send')
+          throw new Error('Failed to send email notification')
         }
       } catch (emailError) {
         console.error('Error sending email notification:', emailError)
