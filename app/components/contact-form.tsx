@@ -22,12 +22,12 @@ export default function ContactForm() {
     try {
       // Save to Supabase database
       const { error: dbError } = await supabase
-        .from('chat_submissions')
+        .from('contact_messages')
         .insert([{
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          project_details: formData.message,
+          message: formData.message,
           status: 'new',
           created_at: new Date().toISOString()
         }])
@@ -46,15 +46,22 @@ export default function ContactForm() {
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
-            message: `
-Phone: ${formData.phone}
-Message: ${formData.message}
-            `
+            message: `New Contact Form Submission
+
+Contact Details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phone}
+
+Message:
+${formData.message}
+
+This message has been saved to your Supabase database in the contact_messages table.`
           }),
         })
         
         if (!emailResponse.ok) {
-          console.error('Email notification failed to send')
+          throw new Error('Failed to send email notification')
         }
       } catch (emailError) {
         console.error('Error sending email notification:', emailError)
