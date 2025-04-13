@@ -1027,11 +1027,14 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#691E5E]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 10V14L12 12V8L7 10Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 12L17 14V10L12 8V12Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 12V16L17 14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7 14L12 16" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20 18.5V5.5C20 4.94772 19.5523 4.5 19 4.5H5C4.44772 4.5 4 4.94772 4 5.5V18.5C4 19.0523 4.44772 19.5 5 19.5H19C19.5523 19.5 20 19.0523 20 18.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 3L4.5 7.5L12 12L19.5 7.5L12 3Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4.5 12L12 16.5L19.5 12" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4.5 16.5L12 21L19.5 16.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="1" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="19.5" cy="7.5" r="1" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="4.5" cy="7.5" r="1" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="19.5" cy="16.5" r="1" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="4.5" cy="16.5" r="1" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Blockchain-Ready</h3>
