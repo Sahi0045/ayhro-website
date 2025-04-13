@@ -532,8 +532,7 @@ import ContactForm from "./components/contact-form"
 import AIChatBot from "./components/AIChatBot"
 import Footer from "./components/Footer"
 import { useState, useEffect } from "react"
-import NetworkAnimation from "./components/network-background"
-//import NetworkAnimation from "./components/NetworkAnimation.tsx"
+import NetworkAnimation from "./components/NetworkAnimation"
 import { motion, AnimatePresence } from "framer-motion"
 import TestimonialCard from "./components/testimonial-card"
 
@@ -926,7 +925,7 @@ export default function Home() {
         </section>
 
         {/* Features Section - Why Ayhro Is The Best Choice */}
-        <section className="mt-12 mb-20 max-w-6xl mx-auto px-4">
+        <section id="best-choice-section" className="mt-12 mb-20 max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-20">
             Why Ayhro Is The Best Choice?
           </h2>
