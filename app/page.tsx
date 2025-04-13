@@ -946,9 +946,12 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#2D1E69]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 3.5H7C4.79086 3.5 3 5.29086 3 7.5V17.5C3 19.7091 4.79086 21.5 7 21.5H17C19.2091 21.5 21 19.7091 21 17.5V7.5C21 5.29086 19.2091 3.5 17 3.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 8.5C10.3431 8.5 9 9.84315 9 11.5C9 13.1569 10.3431 14.5 12 14.5C13.6569 14.5 15 13.1569 15 11.5C15 9.84315 13.6569 8.5 12 8.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7 21.5C7 18.7386 9.23858 16.5 12 16.5C14.7614 16.5 17 18.7386 17 21.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 8H20" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8 4V8" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M9 14C9 14 10 15 12 15C14 15 15 14 15 14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10 12H10.01" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M14 12H14.01" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Design-First, Tech-Driven</h3>
@@ -961,17 +964,12 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#69231E]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.5 3.5C14.5 3.5 14.5 7.5 18.5 7.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3.5 21.5L7.5 17.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14.5 21.5L18.5 17.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7.5 21.5L11.5 17.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3.5 17.5L7.5 13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10.5 17.5L14.5 13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7.5 17.5L11.5 13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14.5 17.5L18.5 13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18.5 7.5C18.5 7.5 14.5 7.5 14.5 3.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14.5 3.5L10.5 7.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18.5 7.5L14.5 11.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 17V19C3 19.5523 3.44772 20 4 20H20C20.5523 20 21 19.5523 21 19V17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6 7L6 17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M18 7L18 17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10 10H14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10 14H14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">End-to-End Expertise</h3>
@@ -984,9 +982,7 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#5E691E]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21 7.5L12 3L3 7.5L12 12L21 7.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3 16.5L12 21L21 16.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3 12L12 16.5L21 12" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Agile, Fast, Reliable</h3>
@@ -999,8 +995,10 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#5E691E]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 3.5L3 8.5L12 13.5L21 8.5L12 3.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3 13.5L12 18.5L21 13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M9 9H9.01" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M15 9H15.01" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Built for Gen Z Brands</h3>
@@ -1013,9 +1011,10 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#1E3569]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 21.5L21 16.5V6.5L12 11.5V21.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 21.5L3 16.5V6.5L12 11.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 3.5L3 8.5L12 13.5L21 8.5L12 3.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7 8H4C3.44772 8 3 8.44772 3 9V20C3 20.5523 3.44772 21 4 21H15C15.5523 21 16 20.5523 16 20V17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M20 4H9C8.44772 4 8 4.44772 8 5V16C8 16.5523 8.44772 17 9 17H20C20.5523 17 21 16.5523 21 16V5C21 4.44772 20.5523 4 20 4Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 8H17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 12H17" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Modular & Scalable</h3>
@@ -1028,12 +1027,11 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="w-[64px] h-[64px] rounded-full bg-[#691E5E]/20 flex items-center justify-center mb-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20.5 16.5V8.5C20.5 7.96957 20.2893 7.46086 19.9142 7.08579C19.5391 6.71071 19.0304 6.5 18.5 6.5H5.5C4.96957 6.5 4.46086 6.71071 4.08579 7.08579C3.71071 7.46086 3.5 7.96957 3.5 8.5V16.5C3.5 17.0304 3.71071 17.5391 4.08579 17.9142C4.46086 18.2893 4.96957 18.5 5.5 18.5H18.5C19.0304 18.5 19.5391 18.2893 19.9142 17.9142C20.2893 17.5391 20.5 17.0304 20.5 16.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7.5 12.5H16.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7.5 15.5H13.5" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15.5 9.5H15.51" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12.5 9.5H12.51" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9.5 9.5H9.51" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7 10V14L12 12V8L7 10Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 12L17 14V10L12 8V12Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 12V16L17 14" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7 14L12 16" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M20 18.5V5.5C20 4.94772 19.5523 4.5 19 4.5H5C4.44772 4.5 4 4.94772 4 5.5V18.5C4 19.0523 4.44772 19.5 5 19.5H19C19.5523 19.5 20 19.0523 20 18.5Z" stroke="#00FF85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <h3 className="text-white text-xl font-semibold mb-3">Blockchain-Ready</h3>
