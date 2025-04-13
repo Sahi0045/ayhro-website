@@ -23,37 +23,27 @@ export default function Quote() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false)
 
-  const handleViewportResize = useCallback(() => {
-    const viewport = window.visualViewport
-    const windowHeight = window.innerHeight
-    const viewportHeight = viewport?.height
-    const visualViewportScale = viewport?.scale || 1
+ 
+const handleViewportResize = useCallback(() => {
+  const viewport = window.visualViewport
+  const windowHeight = window.innerHeight
+  const viewportHeight = viewport?.height
+  const visualViewportScale = viewport?.scale || 1
 
-    // More reliable keyboard detection across all Android and iOS devices
-    if (viewportHeight !== undefined) {
-      const heightDiff = windowHeight - viewportHeight
-      const minKeyboardHeight = 100 // Lower threshold for detection
-      const isKeyboard = heightDiff > minKeyboardHeight && visualViewportScale <= 1 && viewportHeight < windowHeight * 0.8
-      setIsKeyboardVisible(isKeyboard)
+  // More reliable keyboard detection across all Android and iOS devices
+  if (viewportHeight !== undefined) {
+    const heightDiff = windowHeight - viewportHeight
+    const minKeyboardHeight = 100 // Lower threshold for detection
+    const isKeyboard = heightDiff > minKeyboardHeight && visualViewportScale <= 1 && viewportHeight < windowHeight * 0.8
+    setIsKeyboardVisible(isKeyboard)
 
-      // Prevent overscroll and bounce effects
-      document.documentElement.style.overflow = isKeyboard ? 'auto' : ''
-      document.body.style.overflow = isKeyboard ? 'auto' : ''
-      // document.body.style.position = isKeyboard ? 'fixed' : ''
-      // document.body.style.width = isKeyboard ? '100%' : ''
-      
-    document.body.style.width = isKeyboard ? '100%' : ''
-    
-    // Handle form input visibility without using document.activeElement
+    // IMPORTANT: Remove all the styles that were causing issues
     if (isKeyboard) {
-      // Allow the page to scroll naturally when keyboard is open
-      setTimeout(() => {
-        // Use a safer approach that doesn't rely on document.activeElement
-        const focusedInput = document.querySelector('input:focus, textarea:focus, select:focus')
-        if (focusedInput) {
-          focusedInput.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }
-      }, 150)
+      // Don't set any styles that would interfere with normal scrolling
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
   }
 }, [])
