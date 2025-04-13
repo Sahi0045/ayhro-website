@@ -784,10 +784,11 @@ export default function AIChatBot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {/* Welcome Popup */}
         {showWelcomePopup && (
           <motion.div
+            key="welcome-popup"
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -800,27 +801,30 @@ export default function AIChatBot() {
             <div className="absolute -bottom-2 right-4 w-4 h-4 bg-[#1A2730] border-r border-b border-[#00FF85]/20 transform rotate-45"></div>
           </motion.div>
         )}
-        
-        {/* Chat toggle button */}
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`p-4 rounded-full shadow-lg backdrop-blur-sm ${
-            isOpen 
-              ? 'bg-[#1A2730] text-[#00FF85] border border-[#00FF85]/20' 
-              : 'bg-[#1A2730]/80 text-[#00FF85] hover:bg-[#1A2730] border border-[#00FF85]/20'
-          } hover:opacity-90 transition-all`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {isOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <AIIcon />
-          )}
-        </motion.button>
+      </AnimatePresence>
+      
+      {/* Chat toggle button - Always visible */}
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`p-4 rounded-full shadow-lg backdrop-blur-sm ${
+          isOpen 
+            ? 'bg-[#1A2730] text-[#00FF85] border border-[#00FF85]/20' 
+            : 'bg-[#1A2730]/80 text-[#00FF85] hover:bg-[#1A2730] border border-[#00FF85]/20'
+        } hover:opacity-90 transition-all`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {isOpen ? (
+          <X className="w-6 h-6" />
+        ) : (
+          <AIIcon />
+        )}
+      </motion.button>
 
+      <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="chat-window"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
