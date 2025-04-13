@@ -389,7 +389,7 @@
 
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { FiSend } from 'react-icons/fi'
 import { IoClose } from 'react-icons/io5'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -560,6 +560,7 @@ const availability = [
 
 export default function AIChatBot() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false)
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -577,6 +578,22 @@ export default function AIChatBot() {
   })
   const messagesEndRef = useRef<HTMLDivElement>(null)
   
+  // Handle mobile keyboard visibility
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    if (viewport?.height !== undefined) {
+      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      return () => viewport.removeEventListener('resize', handleViewportResize)
+    }
+  }, [handleViewportResize])
+
   // Show welcome popup when component mounts
   useEffect(() => {
     setShowWelcomePopup(true)
@@ -591,6 +608,95 @@ export default function AIChatBot() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // Handle mobile keyboard visibility
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    if (viewport?.height) {
+      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      return () => viewport.removeEventListener('resize', handleViewportResize)
+    }
+  }, [handleViewportResize])
+
+  // Handle mobile keyboard visibility
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    if (viewport?.height) {
+      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      return () => viewport.removeEventListener('resize', handleViewportResize)
+    }
+  }, [handleViewportResize])
+
+  // Handle mobile keyboard visibility
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    if (viewport?.height !== undefined) {
+      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      return () => viewport.removeEventListener('resize', handleViewportResize)
+    }
+  }, [handleViewportResize])
+
+  // Handle mobile keyboard visibility
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    if (viewport?.height !== undefined) {
+      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      return () => viewport.removeEventListener('resize', handleViewportResize)
+    }
+  }, [handleViewportResize])
+
+  // Handle mobile keyboard visibility
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.visualViewport) {
+        setKeyboardVisible(window.visualViewport.height < window.innerHeight)
+      }
+    }
+    
+    window.visualViewport?.addEventListener('resize', handleResize)
+    return () => window.visualViewport?.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Handle mobile keyboard visibility
+  useEffect(() => {
+    const handleResize = () => {
+      const isVisible = window.visualViewport?.height !== undefined
+        ? window.visualViewport.height < window.innerHeight
+        : false
+      setIsKeyboardVisible(isVisible)
+    }
+    
+    window.visualViewport?.addEventListener('resize', handleResize)
+    return () => window.visualViewport?.removeEventListener('resize', handleResize)
+  }, [])
 
   const validateEmail = (email: string) => {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
@@ -832,8 +938,8 @@ export default function AIChatBot() {
             className="absolute bottom-16 right-0 w-96 bg-[#0A1621] rounded-lg shadow-xl border border-[#00FF85]/20 overflow-hidden"
           >
             {/* Chat header */}
-            <div className="p-4 bg-[#1A2730] border-b border-[#00FF85]/20">
-              <div className="flex items-center gap-3">
+            <div className="p-3 sm:p-4 bg-[#1A2730] border-b border-[#00FF85]/20">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <AIIcon />
                 <div>
                   <h3 className="font-medium text-white">Anthro AI Assistant</h3>
@@ -875,7 +981,7 @@ export default function AIChatBot() {
             </div>
 
             {/* Input form */}
-            <div className="p-4 border-t border-[#00FF85]/20">
+            <div className="p-3 sm:p-4 border-t border-[#00FF85]/20 bg-[#0A1621] sticky bottom-0">
               <div className="flex gap-2">
                 <input
                   type="text"
