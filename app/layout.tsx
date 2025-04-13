@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   generator: "v0.dev",
 }
 
+// Add viewport meta tag for better mobile handling
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -32,6 +41,3 @@ export default function RootLayout({
 }
 
 import "./globals.css"
-
-
-import './globals.css'

@@ -578,11 +578,25 @@ export default function AIChatBot() {
   })
   const messagesEndRef = useRef<HTMLDivElement>(null)
   
-  // Handle mobile keyboard visibility
+  // Handle mobile keyboard visibility for all devices
   const handleViewportResize = useCallback(() => {
     const viewport = window.visualViewport
-    if (viewport?.height !== undefined) {
-      setIsKeyboardVisible(viewport.height < window.innerHeight)
+    const windowHeight = window.innerHeight
+    const viewportHeight = viewport?.height
+    const visualViewportScale = viewport?.scale || 1
+
+    // More reliable keyboard detection across all Android and iOS devices
+    if (viewportHeight !== undefined) {
+      const heightDiff = windowHeight - viewportHeight
+      const minKeyboardHeight = 100 // Lower threshold for detection
+      const isKeyboard = heightDiff > minKeyboardHeight && visualViewportScale <= 1 && viewportHeight < windowHeight * 0.8
+      setIsKeyboardVisible(isKeyboard)
+
+      // Prevent overscroll and bounce effects
+      document.documentElement.style.overflow = isKeyboard ? 'hidden' : ''
+      document.body.style.overflow = isKeyboard ? 'hidden' : ''
+      document.body.style.position = isKeyboard ? 'fixed' : ''
+      document.body.style.width = isKeyboard ? '100%' : ''
     }
   }, [])
 
@@ -846,7 +860,7 @@ export default function AIChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-16 right-0 w-96 bg-[#0A1621] rounded-lg shadow-xl border border-[#00FF85]/20 overflow-hidden"
+            className={`fixed sm:absolute ${isKeyboardVisible ? 'bottom-0 h-[100dvh]' : 'bottom-16 sm:h-auto h-[80dvh]'} right-0 w-full sm:w-[360px] md:w-[400px] bg-[#0A1621] sm:rounded-lg rounded-t-lg shadow-xl border-t sm:border border-[#00FF85]/20 overflow-hidden`}
           >
             {/* Chat header */}
             <div className="p-3 sm:p-4 bg-[#1A2730] border-b border-[#00FF85]/20">
@@ -892,13 +906,20 @@ export default function AIChatBot() {
             </div>
 
             {/* Input form */}
-            <div className="p-3 sm:p-4 border-t border-[#00FF85]/20 bg-[#0A1621] sticky bottom-0">
+            <div className="p-3 sm:p-4 border-t border-[#00FF85]/20 bg-[#0A1621] sticky bottom-0" style={{ paddingBottom: isKeyboardVisible ? 'env(safe-area-inset-bottom, 16px)' : '12px' }}>
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                  style={{
+                    WebkitAppearance: 'none',
+                    WebkitBorderRadius: '9999px',
+                    fontSize: '16px',
+                    touchAction: 'manipulation',
+                    WebkitTapHighlightColor: 'transparent'
+                  }}
                   placeholder={
                     currentStep === 'name' ? "Enter your name..." :
                     currentStep === 'email' ? "Enter your email..." :
