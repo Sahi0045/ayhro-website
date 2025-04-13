@@ -772,23 +772,23 @@ export default function Home() {
       <main className={`relative z-10 text-white overflow-x-hidden ${fontSans.className}`}>
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden px-4">
-          {/* Vector Arrow - Updated with specific margins and larger size */}
-          <motion.div 
-            className="absolute hidden md:block" 
-            style={{ 
-              right: '185px',
-              top: '30px',
-              marginLeft:'350px',
-              marginRight:'195px',
-              transformOrigin: 'center center',
-              zIndex: 20
-            }}
+          {/* Vector Arrow - Positioned between journeys and Get Quote button */}
+          <div className="absolute top-0 w-full pointer-events-none">
+            <motion.div 
+              className="hidden lg:block absolute" 
+              style={{ 
+                right: 'clamp(120px, 15vw, 200px)',
+                top: '35px',
+                transformOrigin: 'center center',
+                zIndex: 20
+              }}
             initial={{ opacity: 0, scale: 0.8, rotate: -30 }}
             animate={{ 
               opacity: 1, 
               scale: 1,
               rotate: -9.58,
               y: [0, 5, 0],
+              x: [0, 3, 0]
             }}
             transition={{
               duration: 0.8,
@@ -802,16 +802,18 @@ export default function Home() {
             <Image 
               src="/images/Vector.png" 
               alt="Vector Arrow" 
-              width={180}
-              height={270}
+              width={120}
+              height={120}
+              className="xl:w-[150px] xl:h-[150px] 2xl:w-[180px] 2xl:h-[180px]"
+              priority={true}
               style={{ 
                 maxWidth: '100%',
                 height: 'auto',
                 filter: 'drop-shadow(0 0 8px rgba(0, 255, 133, 0.2))'
               }}
-              priority
             />
           </motion.div>
+          </div>
 
           <div className="max-w-[1200px] mx-auto text-center">
             <motion.div
@@ -878,8 +880,10 @@ export default function Home() {
                     });
                     setPhoneNumber('');
                     
-                    // Redirect to WhatsApp
-                    window.open(`https://wa.me/918121716969?text=Hi%20Ayhro,%20I'd%20like%20to%20book%20a%20call%20with%20you.`, '_blank');
+                    // Redirect to WhatsApp after a short delay to show the success message
+                    setTimeout(() => {
+                      window.open(`https://wa.me/918121716969?text=Hi%20Ayhro,%20I'd%20like%20to%20book%20a%20call%20with%20you.%20My%20number%20is%20${phoneNumber}`, '_blank');
+                    }, 1000);
                   } catch (error) {
                     console.error('Submission error:', error);
                     toast.error('Failed to save your number. Please try again.');
@@ -898,7 +902,7 @@ export default function Home() {
                     />
                     <button 
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !phoneNumber}
                       className="absolute right-2 bg-[#00FF85] text-black px-6 py-2.5 rounded-full hover:bg-opacity-90 transition-colors font-medium text-base whitespace-nowrap flex items-center gap-1"
                     >
                       <span>{isSubmitting ? 'Saving...' : 'Book a call'}</span>
