@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npx next build",
+  "installCommand": "npm install --legacy-peer-deps --no-frozen-lockfile",
+  "framework": "nextjs",
+  "regions": [
+    "iad1"
+  ],
+  "build": {
+    "env": {
+      "NODE_VERSION": "20.x"
+    }
+  },
+  "ignoreCommand": "./vercel-ignore-build-step.sh"
+}
