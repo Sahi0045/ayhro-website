@@ -856,19 +856,19 @@ export default function Home() {
                     setIsSubmitting(false);
                   }
                 }} className="w-full">
-                  <div className="relative w-full bg-[#1A2530] rounded-full flex items-center">
+                  <div className="relative w-full bg-[#1A2530]/80 rounded-full flex items-center overflow-hidden h-12">
                     <input
                       type="tel"
                       placeholder="Your phone number"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
-                      className="w-full bg-transparent px-6 py-4 text-white placeholder:text-gray-400 focus:outline-none text-base"
+                      className="w-full h-full bg-transparent px-5 pr-28 text-[15px] text-white placeholder:text-gray-400/70 focus:outline-none focus:ring-1 focus:ring-[#00FF85]/20"
                       required
                     />
                     <button 
                       type="submit"
                       disabled={isSubmitting || !phoneNumber}
-                      className="absolute right-2 bg-[#00FF85] text-black px-6 py-2.5 rounded-full hover:bg-opacity-90 transition-colors font-medium text-base whitespace-nowrap flex items-center gap-1"
+                      className="absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-[#00FF85] text-black px-4 h-9 rounded-full hover:bg-opacity-90 transition-all duration-200 text-sm font-medium whitespace-nowrap flex items-center gap-1 hover:shadow-lg hover:shadow-[#00FF85]/20"
                     >
                       <span>{isSubmitting ? 'Saving...' : 'Book a call'}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
