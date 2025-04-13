@@ -55,6 +55,20 @@ body {
   }
 }
 
+/* Mobile viewport fixes */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Prevent content shift when virtual keyboard appears */
+@media screen and (max-width: 640px) {
+  .chat-container {
+    height: var(--vh, 100vh);
+  }
+}
+
 /* Prevent content shift when virtual keyboard appears */
 @supports (-webkit-touch-callout: none) {
   .h-screen {
