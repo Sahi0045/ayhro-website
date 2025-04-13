@@ -843,15 +843,22 @@ export default function Home() {
                     // Save to Supabase database
                     const { error: dbError } = await supabase
                       .from('chat_submissions')
-                      .insert([{
+                      .insert({
+                        name: 'Website Visitor',
+                        email: 'no-email@provided.com', // Required field in database
                         phone: phoneNumber,
+                        service: 'Phone Call Request', // Required field in database
+                        project_details: 'Requesting a call',
                         status: 'new',
                         created_at: new Date().toISOString()
-                      }]);
+                      });
 
                     if (dbError) {
                       throw dbError;
                     }
+                    
+                    // Store phone number for WhatsApp redirect
+                    const enteredPhoneNumber = phoneNumber;
                     
                     // Send email notification
                     try {
@@ -863,7 +870,7 @@ export default function Home() {
                         body: JSON.stringify({
                           name: 'Website Visitor',
                           email: 'no-email@provided.com',
-                          message: `A visitor wants to book a call. Phone number: ${phoneNumber}`
+                          message: `A visitor wants to book a call. Phone number: ${enteredPhoneNumber}`
                         }),
                       });
                       
@@ -875,15 +882,15 @@ export default function Home() {
                       // Continue with success flow even if email fails
                     }
 
-                    toast.success('Number saved! We\'ll contact you soon.', {
+                    toast.success('Number saved! Redirecting to WhatsApp...', {
                       duration: 1750,
                     });
                     setPhoneNumber('');
                     
                     // Redirect to WhatsApp after a short delay to show the success message
                     setTimeout(() => {
-                      window.open(`https://wa.me/918121716969?text=Hi%20Ayhro,%20I'd%20like%20to%20book%20a%20call%20with%20you.%20My%20number%20is%20${phoneNumber}`, '_blank');
-                    }, 1000);
+                      window.open(`https://wa.me/918121716969?text=Hi%20Ayhro,%20I'd%20like%20to%20book%20a%20call%20with%20you.%20My%20number%20is%20${enteredPhoneNumber}`, '_blank');
+                    }, 1500);
                   } catch (error) {
                     console.error('Submission error:', error);
                     toast.error('Failed to save your number. Please try again.');

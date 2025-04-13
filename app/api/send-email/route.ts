@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = 'ayhrotech@gmail.com'; // The business email
+const FROM_EMAIL = 'onboarding@resend.dev'; // Sender email (verified domain in Resend)
 
 export async function POST(request: Request) {
   try {
@@ -21,10 +22,11 @@ export async function POST(request: Request) {
     
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Ayhro Contact <onboarding@resend.dev>',
+      from: `Ayhro Contact <${FROM_EMAIL}>`,
       to: ADMIN_EMAIL,
       subject: `New Contact Form Submission from ${name}`,
       html: enhancedMessage,
+      replyTo: email || ADMIN_EMAIL,
     });
 
     console.log('Email sent successfully:', data);
