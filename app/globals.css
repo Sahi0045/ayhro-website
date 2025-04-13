@@ -5,47 +5,53 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem; /* Account for fixed navbar */
-  height: -webkit-fill-available;
-  overflow-x: hidden;
 }
 
 body {
   @apply bg-black text-white;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
   width: 100%;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
 }
 
-/* Fix for mobile input focus */
-input, textarea, select {
-  font-size: 16px !important; /* Prevents iOS zoom */
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-  max-height: 100vh;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  perspective: 1000;
-  -webkit-perspective: 1000;
-}
-
-/* Improve form control visibility when keyboard is active */
+/* Mobile input handling */
 @media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px;
+    padding: 12px;
+    margin-bottom: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+    transform: translateZ(0);
+  }
+
+  form {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 16px));
+  }
+
+  .form-container {
+    position: relative;
+    z-index: 30;
+    transform: translate3d(0,0,0);
+  }
+
   input:focus,
   textarea:focus,
   select:focus {
     position: relative;
-    z-index: 1;
+    z-index: 31;
     transform: translate3d(0,0,0);
   }
 
-  form {
-    margin-bottom: 60px; /* Add space for virtual keyboard */
+  /* Prevent scroll when keyboard is visible */
+  body.keyboard-visible {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Ensure form is visible when keyboard is shown */
+  .form-container:focus-within {
+    padding-bottom: env(keyboard-inset-height, 0px);
   }
 }
 

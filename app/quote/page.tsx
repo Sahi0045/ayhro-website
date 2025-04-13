@@ -281,7 +281,7 @@ This quote request has been saved to your Supabase database.`
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Input Your Name"
-                className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors"
+                className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                 required
               />
             </div>
@@ -298,7 +298,7 @@ This quote request has been saved to your Supabase database.`
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Input Your Email"
-                  className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors"
+                  className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                   required
                 />
               </div>
@@ -313,7 +313,7 @@ This quote request has been saved to your Supabase database.`
                   value={formData.mobile}
                   onChange={handleChange}
                   placeholder="91+"
-                  className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors"
+                  className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                   required
                 />
               </div>
@@ -377,7 +377,7 @@ This quote request has been saved to your Supabase database.`
                 onChange={handleChange}
                 rows={5}
                 placeholder="Write Message..."
-                className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors"
+                className="w-full p-3 bg-[#0F1923] backdrop-blur-sm border border-[#00FF85]/20 text-white rounded-md focus:border-[#00FF85] focus:ring-2 focus:ring-[#00FF85]/20 transition-colors" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                 required
               ></textarea>
             </div>

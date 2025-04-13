@@ -14,9 +14,6 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  minimumScale: 1,
-  maximumScale: 5,
-  userScalable: true,
   viewportFit: 'cover',
 }
 
@@ -27,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fontSans.className} dark relative`}>
+      <body className={`${fontSans.className} dark`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

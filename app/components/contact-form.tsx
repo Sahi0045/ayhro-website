@@ -108,7 +108,7 @@ This message has been saved to your Supabase database in the contact_messages ta
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 form-container">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
             Full Name
@@ -119,7 +119,7 @@ This message has been saved to your Supabase database in the contact_messages ta
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3"
+            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             placeholder="Enter your full name"
             required
           />
@@ -135,7 +135,7 @@ This message has been saved to your Supabase database in the contact_messages ta
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3"
+            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             placeholder="Enter your email address"
             required
           />
@@ -151,7 +151,7 @@ This message has been saved to your Supabase database in the contact_messages ta
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3"
+            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             placeholder="Enter your phone number"
             pattern="[0-9]{10}"
             title="Please enter a valid 10-digit phone number"
@@ -169,7 +169,7 @@ This message has been saved to your Supabase database in the contact_messages ta
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3"
+            className="bg-white text-gray-900 text-sm rounded-md block w-full p-3" style={{ WebkitAppearance: 'none', fontSize: '16px', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             placeholder="Write your message here..."
             required
           ></textarea>
