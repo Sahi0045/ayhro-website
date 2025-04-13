@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -21,6 +21,42 @@ export default function Quote() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false)
+
+  const handleViewportResize = useCallback(() => {
+    const viewport = window.visualViewport
+    const windowHeight = window.innerHeight
+    const viewportHeight = viewport?.height
+    const visualViewportScale = viewport?.scale || 1
+
+    // More reliable keyboard detection across all Android and iOS devices
+    if (viewportHeight !== undefined) {
+      const heightDiff = windowHeight - viewportHeight
+      const minKeyboardHeight = 100 // Lower threshold for detection
+      const isKeyboard = heightDiff > minKeyboardHeight && visualViewportScale <= 1 && viewportHeight < windowHeight * 0.8
+      setIsKeyboardVisible(isKeyboard)
+
+      // Prevent overscroll and bounce effects
+      document.documentElement.style.overflow = isKeyboard ? 'hidden' : ''
+      document.body.style.overflow = isKeyboard ? 'hidden' : ''
+      document.body.style.position = isKeyboard ? 'fixed' : ''
+      document.body.style.width = isKeyboard ? '100%' : ''
+    }
+  }, [])
+
+  useEffect(() => {
+    const viewport = window.visualViewport
+    if (viewport) {
+      viewport.addEventListener('resize', handleViewportResize)
+      viewport.addEventListener('scroll', handleViewportResize)
+    }
+    return () => {
+      if (viewport) {
+        viewport.removeEventListener('resize', handleViewportResize)
+        viewport.removeEventListener('scroll', handleViewportResize)
+      }
+    }
+  }, [handleViewportResize])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
