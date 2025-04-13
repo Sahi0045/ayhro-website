@@ -596,10 +596,10 @@ export default function AIChatBot() {
 
   const saveToDatabase = async (data: UserData) => {
     try {
-      // Save to chat_submissions table for the chatbot
+      // Save to Supabase database
       const { error: dbError } = await supabase
         .from('chat_submissions')
-        .insert([{
+        .insert({
           name: data.name,
           email: data.email,
           phone: data.phone,
@@ -607,11 +607,33 @@ export default function AIChatBot() {
           project_details: data.projectDetails,
           status: 'new',
           created_at: new Date().toISOString()
-        }])
+        })
 
       if (dbError) {
         console.error('Database error:', dbError)
         return false
+      }
+      
+      // Send email notification
+      try {
+        const emailResponse = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            message: `New AI Chatbot Submission:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.selectedService}\nProject Details: ${data.projectDetails}`
+          }),
+        });
+        
+        if (!emailResponse.ok) {
+          console.error('Email notification failed to send');
+        }
+      } catch (emailError) {
+        console.error('Error sending email notification:', emailError);
+        // Continue with success flow even if email fails
       }
 
       return true
