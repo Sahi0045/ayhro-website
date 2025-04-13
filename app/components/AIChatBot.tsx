@@ -397,12 +397,16 @@ import { X, Bot, Send } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
 // AI Icon Component
-const AIIcon = () => (
+interface AIIconProps {
+  className?: string;
+}
+
+const AIIcon = ({ className = "w-6 h-6" }: AIIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6"
+    className={className}
   >
     {/* Glowing outer ring */}
     <circle
@@ -556,6 +560,7 @@ const availability = [
 
 export default function AIChatBot() {
   const [isOpen, setIsOpen] = useState(false)
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       type: 'bot',
@@ -571,6 +576,16 @@ export default function AIChatBot() {
     phone: '',
   })
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  
+  // Show welcome popup when component mounts
+  useEffect(() => {
+    setShowWelcomePopup(true)
+    const timer = setTimeout(() => {
+      setShowWelcomePopup(false)
+    }, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [])
 
   // Scroll to bottom of chat
   useEffect(() => {
@@ -770,6 +785,22 @@ export default function AIChatBot() {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <AnimatePresence>
+        {/* Welcome Popup */}
+        {showWelcomePopup && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="absolute bottom-16 right-0 mb-2 p-3 bg-[#1A2730] border border-[#00FF85]/20 rounded-lg shadow-lg text-white max-w-[200px]"
+          >
+            <div className="flex items-center space-x-2">
+              <AIIcon className="w-5 h-5 text-[#00FF85]" />
+              <p className="text-sm font-medium">Hey AI here! Need help?</p>
+            </div>
+            <div className="absolute -bottom-2 right-4 w-4 h-4 bg-[#1A2730] border-r border-b border-[#00FF85]/20 transform rotate-45"></div>
+          </motion.div>
+        )}
+        
         {/* Chat toggle button */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
