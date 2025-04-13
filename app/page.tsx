@@ -772,48 +772,6 @@ export default function Home() {
       <main className={`relative z-10 text-white overflow-x-hidden ${fontSans.className}`}>
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden px-4">
-          {/* Vector Arrow - Positioned between journeys and Get Quote button */}
-          <div className="absolute top-0 w-full pointer-events-none">
-            <motion.div 
-              className="hidden lg:block absolute" 
-              style={{ 
-                right: 'clamp(120px, 15vw, 200px)',
-                top: '35px',
-                transformOrigin: 'center center',
-                zIndex: 20
-              }}
-            initial={{ opacity: 0, scale: 0.8, rotate: -30 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1,
-              rotate: -9.58,
-              y: [0, 5, 0],
-              x: [0, 3, 0]
-            }}
-            transition={{
-              duration: 0.8,
-              y: {
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-          >
-            <Image 
-              src="/images/Vector.png" 
-              alt="Vector Arrow" 
-              width={120}
-              height={120}
-              className="xl:w-[150px] xl:h-[150px] 2xl:w-[180px] 2xl:h-[180px]"
-              priority={true}
-              style={{ 
-                maxWidth: '100%',
-                height: 'auto',
-                filter: 'drop-shadow(0 0 8px rgba(0, 255, 133, 0.2))'
-              }}
-            />
-          </motion.div>
-          </div>
 
           <div className="max-w-[1200px] mx-auto text-center">
             <motion.div
