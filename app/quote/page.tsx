@@ -37,13 +37,26 @@ export default function Quote() {
       setIsKeyboardVisible(isKeyboard)
 
       // Prevent overscroll and bounce effects
-      document.documentElement.style.overflow = isKeyboard ? 'hidden' : ''
-      document.body.style.overflow = isKeyboard ? 'hidden' : ''
-      document.body.style.position = isKeyboard ? 'fixed' : ''
-      document.body.style.width = isKeyboard ? '100%' : ''
+      document.documentElement.style.overflow = isKeyboard ? 'auto' : ''
+      document.body.style.overflow = isKeyboard ? 'auto' : ''
+      // document.body.style.position = isKeyboard ? 'fixed' : ''
+      // document.body.style.width = isKeyboard ? '100%' : ''
+      
+    document.body.style.width = isKeyboard ? '100%' : ''
+    
+    // Handle form input visibility without using document.activeElement
+    if (isKeyboard) {
+      // Allow the page to scroll naturally when keyboard is open
+      setTimeout(() => {
+        // Use a safer approach that doesn't rely on document.activeElement
+        const focusedInput = document.querySelector('input:focus, textarea:focus, select:focus')
+        if (focusedInput) {
+          focusedInput.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+      }, 150)
     }
-  }, [])
-
+  }
+}, [])
   useEffect(() => {
     const viewport = window.visualViewport
     if (viewport) {
